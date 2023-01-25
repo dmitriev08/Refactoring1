@@ -1,6 +1,6 @@
 class Rental {
-    private Car car;
-    private int daysRented;
+    final private Car car;
+    final private int daysRented;
 
     public Rental(Car car, int daysRented) {
         this.car = car;
