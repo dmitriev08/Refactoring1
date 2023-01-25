@@ -3,7 +3,7 @@ public class Car {
     public static final int REGULAR = 0;
     public static final int MINI_VAN = 1;
     final private String title;
-    private int priceCode;
+    final private int priceCode;
 
     public Car(String title, int priceCode) {
         this.title = title;
