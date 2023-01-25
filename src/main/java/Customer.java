@@ -23,24 +23,9 @@ public class Customer {
         Enumeration rentals = _rentals.elements();
         String result = "Выписка для " + getName() + "\n";
         while (rentals.hasMoreElements()) {
-            double thisAmount = 0;
             Rental each = (Rental) rentals.nextElement();
+            double thisAmount = forAmount(each);
 
-            switch (each.getCar().getPriceCode()) {
-                case Car.REGULAR:
-                    thisAmount += 2;
-                    if (each.getDaysRented() > 2)
-                        thisAmount += (each.getDaysRented() - 2) * 1500;
-                    break;
-                case Car.MINI_VAN:
-                    thisAmount += each.getDaysRented() * 2500;
-                    break;
-                case Car.SPORT:
-                    thisAmount += 4000;
-                    if (each.getDaysRented() > 3)
-                        thisAmount += (each.getDaysRented() - 3) * 3500;
-                    break;
-            }
             frequentRenterPoints++;
             if ((each.getCar().getPriceCode() ==
                     Car.MINI_VAN) && each.getDaysRented() > 1)
@@ -53,6 +38,26 @@ public class Customer {
         result += "Вы заработали  " +
                 String.valueOf(frequentRenterPoints) + " бонусных баллов.";
         return result;
+    }
+
+    private double forAmount(Rental each) {
+        double localAmount = 0;
+        switch (each.getCar().getPriceCode()) {
+            case Car.REGULAR:
+                localAmount += 2;
+                if (each.getDaysRented() > 2)
+                    localAmount += (each.getDaysRented() - 2) * 1500;
+                break;
+            case Car.MINI_VAN:
+                localAmount += each.getDaysRented() * 2500;
+                break;
+            case Car.SPORT:
+                localAmount += 4000;
+                if (each.getDaysRented() > 3)
+                    localAmount += (each.getDaysRented() - 3) * 3500;
+                break;
+        }
+        return localAmount;
     }
 }
 
