@@ -26,10 +26,7 @@ public class Customer {
             Rental each = (Rental) rentals.nextElement();
             double thisAmount = forAmount(each);
 
-            frequentRenterPoints++;
-            if ((each.getCar().getPriceCode() ==
-                    Car.MINI_VAN) && each.getDaysRented() > 1)
-                frequentRenterPoints++;
+            frequentRenterPoints += getFrequentPoints(each);
             result += "\t" + each.getCar().getTitle() + "\t" +
                     String.valueOf(thisAmount) + "\n";
             totalAmount += thisAmount;
@@ -38,6 +35,14 @@ public class Customer {
         result += "Вы заработали  " +
                 String.valueOf(frequentRenterPoints) + " бонусных баллов.";
         return result;
+    }
+
+    private int getFrequentPoints(Rental each) {
+        int localPoints = 1;
+        if ((each.getCar().getPriceCode() ==
+                Car.MINI_VAN) && each.getDaysRented() > 1)
+            localPoints++;
+        return localPoints;
     }
 
     private double forAmount(Rental each) {
