@@ -7,9 +7,11 @@ public class AvisRentals {
         Rental rent = new Rental(renoDuster, 5);
         Rental rent2 = new Rental(ladaGranta, 1);
         Rental rent3 = new Rental(ferrari, 2);
+        Rental rent4 = new Rental(ferrari, 8);
         andrey.addRental(rent);
         andrey.addRental(rent2);
         andrey.addRental(rent3);
+        andrey.addRental(rent4);
         System.out.println(andrey.statement());
     }
 }
