@@ -1,3 +1,6 @@
+/**
+ * very important comment
+ */
 class Rental {
     final private Car car;
     final private int daysRented;
