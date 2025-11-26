@@ -1,7 +1,7 @@
 public class AvisRentals {
     public static void main(String[] args) {
         Customer andrey = new Customer("Andrey Dmitriev");
-        Car renoDuster = new Car("WV Caddy", Car.MINI_VAN);
+        Car renoDuster = new Car("Renault Duster", Car.MINI_VAN);
         Car ladaGranta = new Car("Pegot", Car.REGULAR);
         Car ferrari = new Car("Ferrari Car", Car.SPORT);
         Rental rent = new Rental(renoDuster, 5);
